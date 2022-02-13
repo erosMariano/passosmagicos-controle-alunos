@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: hidden
+    overflow: hidden
 }
 
 .containerForm {
@@ -35,7 +35,7 @@
     flex-direction: column;
     display: flex;
     margin-top: 24px;
-
+    box-shadow: 0px 2.47082px 2.47082px rgba(0, 0, 0, 0.16);
     label {
         position: relative;
     }
