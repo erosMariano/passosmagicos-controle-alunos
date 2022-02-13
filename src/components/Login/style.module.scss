@@ -1,3 +1,7 @@
+
+body{
+    overflow: hidden;
+}
 .main {
     background: #F2F5FF;
     height: 100vh;
@@ -6,7 +10,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden
 }
 
 .containerForm {
