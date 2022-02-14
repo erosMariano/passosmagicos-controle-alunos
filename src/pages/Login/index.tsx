@@ -1,9 +1,28 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./style.module.scss";
 function Login() {
+	let navigate = useNavigate();
+
+	const [loggedIn, setLoggedIn] = useState(false);
+	const [user, setTypeUser] = useState({ type: "" });
+
+	function handleSubmit() {
+		setLoggedIn(true);
+		setTypeUser({ type: "aluno" });
+	}
+
 	useEffect(() => {
-		document.title = "Passos Mágicos | Login";
-	}, []);
+		if (loggedIn && user.type === "aluno") {
+			return navigate("/home-aluno");
+		}
+		if (loggedIn && user.type === "admin") {
+			return navigate("/home-admin");
+		}
+	}, [loggedIn, navigate, user.type]);
+
+	
+
 	return (
 		<main className={styles.main}>
 			<img
@@ -38,9 +57,11 @@ function Login() {
 						/>
 						<input
 							className={styles.inputForm}
+							name="user"
 							type="email"
 							placeholder="Digite seu email"
 							id="emailLogin"
+							required
 						/>
 					</label>
 
@@ -53,12 +74,20 @@ function Login() {
 						<input
 							className={styles.inputForm}
 							type="password"
+							name="password"
 							placeholder="Digite sua senha"
 							id="passwordLogin"
+							minLength={8}
+							autoComplete="true"
+							required
 						/>
 					</label>
 
-					<button type="submit" className={styles.buttonForm}>
+					<button
+						type="submit"
+						onClick={handleSubmit}
+						className={styles.buttonForm}
+					>
 						Entrar
 					</button>
 				</form>

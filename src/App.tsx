@@ -1,11 +1,9 @@
 import React from "react";
-import Login from "./components/Login";
+import AppRoutes from "./Routes";
 
 function App() {
 	return (
-		<>
-			<Login />
-		</>
+		<AppRoutes/>
 	);
 }
 
