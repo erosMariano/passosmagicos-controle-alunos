@@ -1,8 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
+import { useEffect } from "react";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
+
+	useEffect(() => {
+		const body = document.querySelector("body");
+		if (body) {
+			body.classList.add("overflow-hidden");
+		}
+	}, []);
+
 	return (
 		<main className={styles.main}>
 			<img

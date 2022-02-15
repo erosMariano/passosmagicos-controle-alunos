@@ -1,3 +1,7 @@
+.overflow-hidden {
+  overflow: hidden;
+
+}
 
 .main {
   background: #F2F5FF;
@@ -36,8 +40,9 @@
   display: flex;
   margin-top: 24px;
   box-shadow: 0px 2.47082px 2.47082px rgba(0, 0, 0, 0.16);
+
   label {
-      position: relative;
+    position: relative;
   }
 }
 
@@ -73,11 +78,11 @@
   color: #2b2b2b;
 
   &:focus {
-      border: 1px solid #0059d4;
+    border: 1px solid #0059d4;
   }
 
   &::placeholder {
-      color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.3);
   }
 
 }
@@ -105,59 +110,59 @@
   transition: .3s;
 
   &:hover {
-      background: #064fb9;
+    background: #064fb9;
   }
 }
 
 
 @media(max-width:1309px) {
   .imageBanner {
-      width: 400px;
+    width: 400px;
   }
 }
 
 @media(max-width:932px) {
   .containerForm {
-      width: 90%;
-      text-align: center;
-      position: relative;
-      top: -40px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    top: -40px;
   }
 
   .imageBanner {
-      width: 200px;
+    width: 200px;
   }
 
   .containerForm {
-      z-index: 100;
+    z-index: 100;
   }
 
   .form {
-      width: 100%;
-      margin: 0 auto;
-      padding: 16px 25px 20px 25px;
-      max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 16px 25px 20px 25px;
+    max-width: 350px;
   }
 
   .formH1 {
-      font-size: 1.5rem;
-      line-height: 37px;
+    font-size: 1.5rem;
+    line-height: 37px;
 
   }
 
   .formP {
-      font-size: 0.6rem;
-      margin-bottom: 10px;
+    font-size: 0.6rem;
+    margin-bottom: 10px;
   }
 
   .logo {
-      width: 148px;
-      margin-bottom: 27px;
+    width: 148px;
+    margin-bottom: 27px;
   }
 
   .inputForm,
   .buttonForm {
-      font-size: .8rem;
+    font-size: .8rem;
   }
 
 
