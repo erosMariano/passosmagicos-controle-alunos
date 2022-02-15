@@ -1,28 +1,8 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./style.module.scss";
-function Login() {
-	let navigate = useNavigate();
+/* eslint-disable @next/next/no-img-element */
+import type { NextPage } from "next";
+import styles from "../styles/Home.module.scss";
 
-	const [loggedIn, setLoggedIn] = useState(false);
-	const [user, setTypeUser] = useState({ type: "" });
-
-	function handleSubmit() {
-		setLoggedIn(true);
-		setTypeUser({ type: "aluno" });
-	}
-
-	useEffect(() => {
-		if (loggedIn && user.type === "aluno") {
-			return navigate("/home-aluno");
-		}
-		if (loggedIn && user.type === "admin") {
-			return navigate("/home-admin");
-		}
-	}, [loggedIn, navigate, user.type]);
-
-	
-
+const Home: NextPage = () => {
 	return (
 		<main className={styles.main}>
 			<img
@@ -83,17 +63,13 @@ function Login() {
 						/>
 					</label>
 
-					<button
-						type="submit"
-						onClick={handleSubmit}
-						className={styles.buttonForm}
-					>
+					<button type="submit" className={styles.buttonForm}>
 						Entrar
 					</button>
 				</form>
 			</div>
 		</main>
 	);
-}
+};
 
-export default Login;
+export default Home;
