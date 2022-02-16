@@ -9,3 +9,24 @@ a {
   padding: 0;
   font-family: Poppins, sans-serif;
 }
+
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: #2781fe9d; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

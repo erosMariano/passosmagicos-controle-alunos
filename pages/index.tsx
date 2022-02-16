@@ -1,18 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useEffect } from "react";
 
 import styles from "../styles/Home.module.scss";
 
-
 const Home: NextPage = () => {
+	// useEffect(() => {
+	// 	let vh = window.innerHeight * 0.01;
+
+	// 	if (document.querySelector(".myMain")) {
+	// 		document.querySelector(".myMain").style.setProperty("--vh", `${vh}px`);
+	// 	}
+	// }, []);
+	
 	return (
 		<>
 			<Head>
 				<title>Passos Mágicos | Login</title>
 			</Head>
-			<main className={styles.main}>
+			<main className={`${styles.main} myMain`}>
 				<img
 					src="/images/bannerLoginEsquerda.svg"
 					alt="Banner com estrelas"
