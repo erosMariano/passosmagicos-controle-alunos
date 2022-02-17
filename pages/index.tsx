@@ -6,20 +6,18 @@ import { useEffect } from "react";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
-	// useEffect(() => {
-	// 	let vh = window.innerHeight * 0.01;
-
-	// 	if (document.querySelector(".myMain")) {
-	// 		document.querySelector(".myMain").style.setProperty("--vh", `${vh}px`);
-	// 	}
-	// }, []);
 	
+	useEffect(() => {
+		let vh = window.innerHeight * 0.01;
+		document.querySelector("main")!.style.setProperty("--vh", `${vh}px`);
+	});
+
 	return (
 		<>
 			<Head>
 				<title>Passos Mágicos | Login</title>
 			</Head>
-			<main className={`${styles.main} myMain`}>
+			<main className={`${styles.main}`}>
 				<img
 					src="/images/bannerLoginEsquerda.svg"
 					alt="Banner com estrelas"
