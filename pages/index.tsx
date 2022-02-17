@@ -2,16 +2,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Router from "next/router";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { AuthContext, useAuth } from "../src/providers/auth";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
-	const [loginUser, setLoginUser] = useState({
-		user: "",
-		password: "",
-	});
+	const { setLoginUser, loginUser, setLogin } = useAuth();
+
 
 	const notify = (error: string) =>
 		toast.error(error, {
@@ -24,7 +23,7 @@ const Home: NextPage = () => {
 			progress: undefined,
 		});
 
-	function onChangeInputs(e: ChangeEvent<HTMLInputElement>) {
+	function onChangeInputs(e: ChangeEvent<HTMLInputElement>) { //pega valor do password e do login
 		const { value, name } = e.target;
 
 		setLoginUser({
@@ -33,7 +32,7 @@ const Home: NextPage = () => {
 		});
 	}
 
-	function validateForm(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+	function validateForm(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) { //verifica se a credencial é verdadeira
 		e.preventDefault();
 
 		if (
@@ -41,9 +40,10 @@ const Home: NextPage = () => {
 			loginUser.password === "12345678"
 		) {
 			Router.push("/portal-do-aluno");
+			setLogin(true)
 		} else if (loginUser.user !== "teste@gmail.com") {
 			notify("email inválido");
-		}else if(loginUser.password !== "12345678"){
+		} else if (loginUser.password !== "12345678") {
 			notify("Senha inválida");
 		}
 	}
