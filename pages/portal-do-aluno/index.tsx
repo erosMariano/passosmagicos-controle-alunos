@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import { HiOutlineLogout } from "react-icons/hi";
 import { AiOutlineSchedule, AiOutlineWarning } from "react-icons/ai";
@@ -9,9 +9,21 @@ import Router from "next/router";
 import Head from "next/head";
 
 function HomeAluno() {
+	const [tamanhoLogo, setTamanhoLogo] = useState(210);
+
+	//função de logout
 	function logout() {
 		Router.push("/");
 	}
+
+	useEffect(() => {
+		if (window !== undefined) {
+			if (window.innerWidth <= 800) {
+				setTamanhoLogo(150);
+			}
+		}
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -24,8 +36,8 @@ function HomeAluno() {
 							<div>
 								{" "}
 								<Image
-									width={210}
-									height={200}
+									width={tamanhoLogo}
+									height={tamanhoLogo}
 									src={
 										"/images/logo-passos-magicos-white.png"
 									}
@@ -78,7 +90,7 @@ function HomeAluno() {
 							</div>
 						</div>
 
-						<div>
+						<div className={styles.imagemDesk}>
 							<Image
 								width={440}
 								height={273.23}

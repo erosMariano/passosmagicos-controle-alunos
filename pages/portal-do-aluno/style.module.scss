@@ -3,12 +3,14 @@
     margin-left: auto;
     margin-right: auto;
 }
-.flex{
+
+.flex {
     display: flex;
     justify-content: space-between;
 }
-.teste{
-    min-height:100vh;
+
+.teste {
+    min-height: 100vh;
     background: #F2F5FF;
 }
 
@@ -76,10 +78,10 @@
     padding-bottom: 78px;
 }
 
-.infosForAlunos{
+.infosForAlunos {
     display: flex;
     max-width: 532px;
-    justify-content:space-between;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -104,8 +106,9 @@
     }
 
     transition: .3s;
+
     svg {
-        font-size:5.5rem;
+        font-size: 5.5rem;
         fill: #277FFE;
         margin-bottom: 16px;
     }
@@ -116,8 +119,66 @@
         p {
             color: #fff;
         }
-        svg{
+
+        svg {
             fill: #fff;
+        }
+    }
+}
+
+@media(max-width: 1107px) {
+    .logoutHeader {
+        width: 100%;
+        padding-right: 20px;
+    }
+
+    .maxContainer {
+        width: 100%;
+    }
+
+    .imagemDesk {
+        display: none;
+    }
+
+    .infosForAlunos {
+        max-width: 100%;
+        width: 100%;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width:809px) {
+    .infosForAlunos {
+        justify-content: center;
+
+        div {
+            margin: 10px;
+
+            a {
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    .header{
+        padding-top:158px;
+    }
+}
+
+@media(max-width:518px) {
+    .titlePage {
+        h1 {
+            font-size: 2.299rem;
+            line-height: 55px;
+
+        }
+
+        p {
+            font-size: 0.985rem;
+            line-height: 24px;
         }
     }
 }
