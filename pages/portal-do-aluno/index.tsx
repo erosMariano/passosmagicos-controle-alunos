@@ -1,34 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
-import Router from "next/router";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AiOutlineSchedule, AiOutlineWarning } from "react-icons/ai";
 import { BiBookBookmark } from "react-icons/bi";
 import { BsClipboardData } from "react-icons/bs";
-import { HiOutlineLogout } from "react-icons/hi";
 import { useAuth } from "../../src/providers/auth";
 import styles from "./style.module.scss";
+import Header from "../../src/components/Header";
+import Link from "next/link";
 
 function HomeAluno() {
-	const [tamanhoLogo, setTamanhoLogo] = useState(210);
-
-	const { login, setLogin } = useAuth();
-
-	if (!login) {
-		Router.router?.push("/");
-	}
-	//função de logout
-	function logout() {
-		setLogin(false)
-	}
-
-	useEffect(() => {
-		if (window !== undefined) {
-			if (window.innerWidth <= 800) {
-				setTamanhoLogo(150);
-			}
-		}
-	}, []);
+	const { login } = useAuth();
 
 	return (
 		<>
@@ -39,34 +21,9 @@ function HomeAluno() {
 					<Head>
 						<title>Passos Mágicos | Portal do Aluno</title>
 					</Head>
+
 					<main className={styles.teste}>
-						<header className={styles.header}>
-							<div className={styles.maxContainer}>
-								<div className={styles.logoutHeader}>
-									<div>
-										{" "}
-										<Image
-											width={tamanhoLogo}
-											height={tamanhoLogo}
-											src={
-												"/images/logo-passos-magicos-white.png"
-											}
-											alt="logo passos mágicos"
-										/>
-									</div>
-
-									<button onClick={logout}>
-										<HiOutlineLogout />
-										Sair
-									</button>
-								</div>
-
-								<div className={styles.titlePage}>
-									<h1>Olá Eros,</h1>
-									<p>SEJA BEM-VINDO AO PORTAL DO ALUNO.</p>
-								</div>
-							</div>
-						</header>
+						<Header />
 
 						<section className={styles.section}>
 							<div
@@ -76,49 +33,45 @@ function HomeAluno() {
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										<a
-											href="/info1"
-											className={styles.cardInfos}
-										>
-											<AiOutlineSchedule />
-											<p>Boletim</p>
-										</a>
+										<Link href="/info1">
+											<a className={styles.cardInfos}>
+												<AiOutlineSchedule />
+												<p>Boletim</p>
+											</a>
+										</Link>
 									</div>
 
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										<a
-											href="/info1"
-											className={styles.cardInfos}
-										>
-											<BsClipboardData />
-											<p>Relatório</p>
-										</a>
+										<Link href="/info1">
+											<a className={styles.cardInfos}>
+												<BsClipboardData />
+												<p>Relatório</p>
+											</a>
+										</Link>
 									</div>
 
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										<a
-											href="/info1"
-											className={styles.cardInfos}
-										>
-											<AiOutlineWarning />
-											<p>Avisos</p>
-										</a>
+										<Link href="/avisos">
+											<a className={styles.cardInfos}>
+												<AiOutlineWarning />
+												<p>Avisos</p>
+											</a>
+										</Link>
 									</div>
 
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										<a
-											href="/info1"
-											className={styles.cardInfos}
-										>
-											<BiBookBookmark />
-											<p>Atividades</p>
-										</a>
+										<Link href="/info1">
+											<a className={styles.cardInfos}>
+												<BiBookBookmark />
+												<p>Atividades</p>
+											</a>
+										</Link>
 									</div>
 								</div>
 
@@ -140,4 +93,3 @@ function HomeAluno() {
 }
 
 export default HomeAluno;
-

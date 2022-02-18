@@ -1,0 +1,80 @@
+.maxContainer {
+    width: 1084px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 62px;
+
+    display: flex;
+    justify-content: space-between;
+    background: #F2F5FF;
+    padding-bottom: 50px;
+
+}
+
+
+.containerImage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.buttons {
+    padding-bottom: 50px;
+    display: flex;
+
+}
+
+.message {
+    width: 675px;
+    padding: 16px;
+    margin-bottom: 20px;
+    font-family: Poppins;
+
+    background: #E9E9E9;
+    border-radius: 6px;
+
+    h2 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 36px;
+        /* identical to box height */
+        letter-spacing: 0.02em;
+        color: #3E3E3E;
+    }
+
+    p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+
+        color: #000000;
+        margin-top: 8px;
+    }
+}
+
+
+@media(max-width:1105px) {
+
+    .message,
+    .maxContainer {
+        width: 100%;
+        position: relative;
+    }
+
+    .maxContainer {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .containerImageMobile {
+        display: none;
+    }
+
+    .buttons {
+        position: absolute;
+    }
+}
+

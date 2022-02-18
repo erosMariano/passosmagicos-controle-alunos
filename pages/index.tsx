@@ -1,52 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import Head from "next/head";
-import Router from "next/router";
-import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import { AuthContext, useAuth } from "../src/providers/auth";
+import { useAuth } from "../src/providers/auth";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
-	const { setLoginUser, loginUser, setLogin } = useAuth();
-
-
-	const notify = (error: string) =>
-		toast.error(error, {
-			position: "top-right",
-			autoClose: 3000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-		});
-
-	function onChangeInputs(e: ChangeEvent<HTMLInputElement>) { //pega valor do password e do login
-		const { value, name } = e.target;
-
-		setLoginUser({
-			...loginUser,
-			[name]: value,
-		});
-	}
-
-	function validateForm(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) { //verifica se a credencial é verdadeira
-		e.preventDefault();
-
-		if (
-			loginUser.user === "teste@gmail.com" &&
-			loginUser.password === "12345678"
-		) {
-			Router.push("/portal-do-aluno");
-			setLogin(true)
-		} else if (loginUser.user !== "teste@gmail.com") {
-			notify("email inválido");
-		} else if (loginUser.password !== "12345678") {
-			notify("Senha inválida");
-		}
-	}
+	const { onChangeInputs, validateForm } = useAuth();
 
 	useEffect(() => {
 		let vh = window.innerHeight * 0.01;

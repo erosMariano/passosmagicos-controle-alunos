@@ -14,63 +14,6 @@
     background: #F2F5FF;
 }
 
-.header {
-    background-image: url("/images/background-interno.png");
-    background-repeat: no-repeat;
-    padding-bottom: 140px;
-    padding-top: 140px;
-    background-size: cover;
-    width: 100%;
-    position: relative;
-}
-
-.logoutHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    width: 1084px;
-    top: 0px;
-
-    button {
-        position: relative;
-        top: -30px;
-        cursor: pointer;
-        background: none;
-        display: flex;
-        align-items: center;
-        color: #fff;
-        border: none;
-        font-size: 24px;
-
-        svg {
-            margin-right: 9px;
-        }
-    }
-}
-
-
-.titlePage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #FFFFFF;
-
-    h1 {
-        font-weight: 300;
-        font-size: 3.5rem;
-        line-height: 84px;
-        text-align: center;
-    }
-
-    p {
-        font-weight: 500;
-        font-size: 1.5rem;
-        line-height: 36px;
-    }
-}
-
 
 
 .section {
