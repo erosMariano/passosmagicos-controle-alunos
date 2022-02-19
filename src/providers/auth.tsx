@@ -84,23 +84,27 @@ export const AuthProvider: FC = ({ children }) => {
 		}
 	}
 
-
 	//Verificando se existe um hash de login
 	useEffect(() => {
 		if (localStorage) {
-			if (localStorage.getItem("login") === "e6d9a64e-7bda-4150-9216-fd944ac03eed") {
+			if (
+				localStorage.getItem("login") ===
+				"e6d9a64e-7bda-4150-9216-fd944ac03eed"
+			) {
 				setLogin(true);
-			}else{
+			} else {
 				Router.router?.push("/");
 			}
 		}
 	}, [login]);
 
-
-
-	//Logout 
+	//Logout
 	function logout() {
 		localStorage.removeItem("login");
+		setLoginUser({
+			user: "",
+			password: "",
+		});
 		setLogin(false);
 	}
 
@@ -113,7 +117,7 @@ export const AuthProvider: FC = ({ children }) => {
 				login,
 				onChangeInputs,
 				validateForm,
-				logout
+				logout,
 			}}
 		>
 			{children}
