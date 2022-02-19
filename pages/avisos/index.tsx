@@ -1,35 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ButtonLocation from "../../src/components/ButtonLocation";
 import Header from "../../src/components/Header";
 import TitleSectionAluno from "../../src/components/TitleSectionAluno";
+import { informacoes } from "../../src/datas/aviso";
 import { useAuth } from "../../src/providers/auth";
 import styles from "./style.module.scss";
 
 function Avisos() {
 	const { login } = useAuth();
-
-	const informacoes: {
-		title: string;
-		message: string;
-	}[] = [
-		{
-			title: "Seja bem-vindo!",
-			message:
-				"Querido aluno, que no decorrer deste ano você seja como uma árvore, que juntos possamos semear conhecimento e, ao final, colhermos frutos dessa parceria de sucesso. Seja bem-vindo!",
-		},
-	];
-
-	const [tamanhoImagemAvisos, setTamanhoImagemAvisos] = useState(100);
-
-	useEffect(() => {
-		if (window !== undefined) {
-			if (window.innerWidth <= 800) {
-				setTamanhoImagemAvisos(50);
-			}
-		}
-	}, []);
 	return (
 		<>
 			{!login ? (
@@ -42,7 +22,7 @@ function Avisos() {
 
 					<Header />
 
-					<main>
+					<main className={styles.main}>
 						<div className={styles.maxContainer}>
 							<div className={styles.informacoes}>
 
@@ -51,7 +31,7 @@ function Avisos() {
 									altImagem="Warning image"
 									titulo="AVISOS"
 								/>
-								
+
 								{informacoes.length >= 1 ? (
 									<div className={styles.containerMessage}>
 										{informacoes.map((message) => {

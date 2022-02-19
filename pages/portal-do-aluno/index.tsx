@@ -8,6 +8,7 @@ import { useAuth } from "../../src/providers/auth";
 import styles from "./style.module.scss";
 import Header from "../../src/components/Header";
 import Link from "next/link";
+import { informacoes } from "../../src/datas/aviso";
 
 function HomeAluno() {
 	const { login } = useAuth();
@@ -21,7 +22,6 @@ function HomeAluno() {
 					<Head>
 						<title>Passos Mágicos | Portal do Aluno</title>
 					</Head>
-
 					<main className={styles.teste}>
 						<Header />
 
@@ -55,12 +55,27 @@ function HomeAluno() {
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										<Link href="/avisos">
-											<a className={styles.cardInfos}>
-												<AiOutlineWarning />
-												<p>Avisos</p>
-											</a>
-										</Link>
+										{informacoes.length >= 1 ? (
+											<Link href="/avisos">
+												<a
+													className={`${styles.cardInfos} ${styles.avisoCard}`}
+												>
+													<AiOutlineWarning />
+													<p>Avisos</p>
+
+													<span>{informacoes.length}</span>
+												</a>
+											</Link>
+										) : (
+											<Link href="/avisos">
+												<a
+													className={`${styles.cardInfos}`}
+												>
+													<AiOutlineWarning />
+													<p>Avisos</p>
+												</a>
+											</Link>
+										)}
 									</div>
 
 									<div
