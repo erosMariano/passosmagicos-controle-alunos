@@ -10,10 +10,10 @@ import styles from "../styles/Home.module.scss";
 const Home: NextPage = () => {
 	const { onChangeInputs, validateForm } = useAuth();
 
-	useEffect(() => {
-		let vh = window.innerHeight * 0.01;
-		document.querySelector("main")!.style.setProperty("--vh", `${vh}px`);
-	});
+	// useEffect(() => {
+	// 	let vh = window.innerHeight * 0.01;
+	// 	document.querySelector("main")!.style.setProperty("--vh", `${vh}px`);
+	// });
 
 	return (
 		<>
