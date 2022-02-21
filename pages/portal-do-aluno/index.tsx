@@ -22,7 +22,7 @@ function HomeAluno() {
 					<Head>
 						<title>Passos Mágicos | Portal do Aluno</title>
 					</Head>
-					<main className={styles.teste}>
+					<main className={styles.main}>
 						<Header />
 
 						<section className={styles.section}>
@@ -33,7 +33,7 @@ function HomeAluno() {
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										<Link href="/info1">
+										<Link href="/boletim">
 											<a className={styles.cardInfos}>
 												<AiOutlineSchedule />
 												<p>Boletim</p>
@@ -63,7 +63,9 @@ function HomeAluno() {
 													<AiOutlineWarning />
 													<p>Avisos</p>
 
-													<span>{informacoes.length}</span>
+													<span>
+														{informacoes.length}
+													</span>
 												</a>
 											</Link>
 										) : (

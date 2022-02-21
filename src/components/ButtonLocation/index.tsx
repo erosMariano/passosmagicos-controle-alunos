@@ -1,14 +1,12 @@
 import Link from "next/link";
 import React from "react";
+import { PropsButton } from "../../types/myTypes";
 import styles from "./style.module.scss";
 
-type PropsButton = {
-	caminho: string;
-	localName: string;
-};
-function ButtonLocation({ caminho, localName }: PropsButton) {
+
+function ButtonLocation({ caminhoButton, localName }: PropsButton) {
 	return (
-		<Link href={caminho}>
+		<Link href={caminhoButton}>
 			<a className={styles.link}>{localName}</a>
 		</Link>
 	);

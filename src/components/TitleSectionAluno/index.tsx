@@ -1,12 +1,9 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { PropsTitulo } from "../../types/myTypes";
 import styles from "./style.module.scss";
 
-type PropsTitulo = {
-    caminhoImagem: string;
-    altImagem: string;
-    titulo: string;
-}
+
 function TitleSectionAluno({caminhoImagem, altImagem, titulo}: PropsTitulo) {
     const [tamanhoImagemAvisos, setTamanhoImagemAvisos] = useState(100)
 

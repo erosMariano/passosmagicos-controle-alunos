@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import ButtonLocation from "../../src/components/ButtonLocation";
 import Header from "../../src/components/Header";
+import HeaderInSection from "../../src/components/HeaderInSection";
 import TitleSectionAluno from "../../src/components/TitleSectionAluno";
 import { informacoes } from "../../src/datas/aviso";
 import { useAuth } from "../../src/providers/auth";
@@ -25,12 +26,12 @@ function Avisos() {
 					<main className={styles.main}>
 						<div className={styles.maxContainer}>
 							<div className={styles.informacoes}>
-
 								<TitleSectionAluno
 									caminhoImagem="/images/icons/warning.svg"
 									altImagem="Warning image"
 									titulo="AVISOS"
 								/>
+							
 
 								{informacoes.length >= 1 ? (
 									<div className={styles.containerMessage}>
@@ -58,7 +59,7 @@ function Avisos() {
 							<div className={styles.containerImage}>
 								<div className={styles.buttons}>
 									<ButtonLocation
-										caminho="/portal-do-aluno"
+										caminhoButton="/portal-do-aluno"
 										localName="dashboard"
 									/>
 								</div>
