@@ -14,17 +14,21 @@ function HomeAluno() {
 	const { login } = useAuth();
 	const { avisos } = useAvisos();
 
-	const [lido, setLido] = useState(false);
+	const [lido, setLido] = useState<number>(0);
 
+	//Verifica se email ja foi lido ou não
+	let contador = 0;
 
-	//Verifica se email ja foi lido ou não 
 	useEffect(() => {
 		avisos.map((element) => {
-			if (element.lido === true) {
-				setLido(true);
+			if (element.lido === false) {
+				contador++;
+				setLido(contador);
 			}
 		});
+
 	});
+
 	return (
 		<>
 			{!login ? (
@@ -67,7 +71,7 @@ function HomeAluno() {
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										{!lido ? (
+										{lido ? (
 											<Link href="/avisos">
 												<a
 													className={`${styles.cardInfos} ${styles.avisoCard}`}
@@ -75,7 +79,7 @@ function HomeAluno() {
 													<AiOutlineWarning />
 													<p>Avisos</p>
 
-													<span>{avisos.length}</span>
+													<span>{lido}</span>
 												</a>
 											</Link>
 										) : (

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import ButtonLocation from "../../src/components/ButtonLocation";
 import Header from "../../src/components/Header";
 import TitleSectionAluno from "../../src/components/TitleSectionAluno";
@@ -13,7 +13,6 @@ function Avisos() {
 	const { login } = useAuth();
 	const { avisos } = useAvisos();
 
-	console.log(avisos);
 
 	
 	return (

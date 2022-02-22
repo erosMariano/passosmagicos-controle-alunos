@@ -12,9 +12,8 @@ export const informacoes: {
 	lido: boolean;
 }[] = [
 	{
-		title: "Seja bem-vindo!",
-		message:
-			"Querido aluno, que no decorrer deste ano você seja como uma árvore, que juntos possamos semear conhecimento e, ao final, colhermos frutos dessa parceria de sucesso. Seja bem-vindo!",
+		title: "",
+		message: "",
 		lido: false,
 	},
 ];
@@ -51,24 +50,8 @@ export const AvisosProvider: FC = ({ children }) => {
 					"Querido aluno, que no decorrer deste ano você seja como uma árvore, que juntos possamos semear conhecimento e, ao final, colhermos frutos dessa parceria de sucesso. Seja bem-vindo!",
 				lido: false,
 			},
-
-			{
-				title: "Seja bem-vindo!",
-				message:
-					"Querido aluno, que no decorrer deste ano você seja como uma árvore, que juntos possamos semear conhecimento e, ao final, colhermos frutos dessa parceria de sucesso. Seja bem-vindo!",
-				lido: false,
-			},
-
-			{
-				title: "Seja bem-vindo!",
-				message:
-					"Querido aluno, que no decorrer deste ano você seja como uma árvore, que juntos possamos semear conhecimento e, ao final, colhermos frutos dessa parceria de sucesso. Seja bem-vindo!",
-				lido: false,
-			},
 		]);
 	}, []);
-
-
 
 	const avisoLido = useCallback(() => {
 		avisos.map((element) => {
