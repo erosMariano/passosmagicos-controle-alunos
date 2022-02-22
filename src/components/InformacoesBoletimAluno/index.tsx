@@ -1,36 +1,109 @@
+import React, { useState } from "react";
+import styles from "./style.module.scss";
+
 type PropsBoletimAluno = {
 	disciplina: string;
 	notas: number[];
 	faltas: number;
-	situacacao: string;
+	situacao: string;
 };
 const alunoNotas: PropsBoletimAluno[] = [
 	{
 		disciplina: "RESPONSIVE WEB DESIGN",
-		notas: [100, 95, 98],
+		notas: [100, 30, 100],
 		faltas: 2,
-		situacacao: "Aprovado",
+		situacao: "Aprovado",
+	},
+
+	{
+		disciplina: "Java",
+		notas: [60, 95, 98],
+		faltas: 2,
+		situacao: "Aprovado",
 	},
 ];
 
-import React, { useState } from "react";
+type PropsInformacoesBoletimAluno = {
+	nameElement: "disciplina" | "notas" | "faltas" | "situacao";
+};
 
-function InformacoesBoletimAluno() {
+function InformacoesBoletimAluno({
+	nameElement,
+}: PropsInformacoesBoletimAluno) {
+	const [displayPopup, setDisplayPopup] = useState<string>("desativo");
+	const [elementosDisciplina, setElementosDisciplina] =
+		useState<PropsBoletimAluno>();
 
-    	const [nota, setNota] = useState<number>(0);
+	function abrirPopupNotas(disciplina: string) {
+		const dadosElement = alunoNotas.filter(
+			(element) => element.disciplina === disciplina
+		);
 
-		let acoulador = 0;
-		let contador = 0;
-		alunoNotas.map((elemento) => {
-			elemento.notas.forEach((nota) => {
-				acoulador += nota;
-				contador++;
-			});
+		setDisplayPopup("ativo");
+		dadosElement.map((element) => {
+			setElementosDisciplina(element);
 		});
+	}
 
-		const mediaPonderada = (acoulador / contador).toFixed(2);
-        
-	return <div></div>;
+	function tirar() {
+		setDisplayPopup("desativo");
+	}
+	return (
+		<>
+			{alunoNotas.map((element) => {
+				let acoulador = 0;
+				let contador = 0;
+
+				element.notas.forEach((nota) => {
+					acoulador += nota;
+					contador++;
+				});
+				const mediaPonderada = (acoulador / contador).toFixed(2);
+				if (nameElement === "disciplina") {
+					return (
+						<li key={element.disciplina}>{element.disciplina}</li>
+					);
+				} else if (nameElement === "notas") {
+					return (
+						<React.Fragment key={element.disciplina}>
+							<li
+								onClick={() =>
+									abrirPopupNotas(element.disciplina)
+								}
+							>
+								{mediaPonderada}
+							</li>
+							<div
+								className={styles[displayPopup]}
+								onClick={() => tirar()}
+							>
+								<div className={styles.containerPopup}>
+									{/* <h1>{elementosDisciplina?.disciplina}</h1>
+									<h1>{elementosDisciplina?.faltas}</h1>
+									<h1>
+										{elementosDisciplina?.notas.map(
+											(nota, index) => {
+												return (
+													<ul key={nota + index}>
+														<li>{nota}</li>
+													</ul>
+												);
+											}
+										)}
+									</h1>
+									<h1>{elementosDisciplina?.situacao}</h1> */}
+								</div>
+							</div>
+						</React.Fragment>
+					);
+				} else if (nameElement === "faltas") {
+					return <li key={element.disciplina}>{element.faltas}</li>;
+				} else if (nameElement === "situacao") {
+					return <li key={element.disciplina}>{element.situacao}</li>;
+				}
+			})}
+		</>
+	);
 }
 
 export default InformacoesBoletimAluno;

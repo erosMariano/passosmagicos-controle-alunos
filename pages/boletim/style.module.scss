@@ -1,7 +1,8 @@
+
 .main {
     background: #F2F5FF;
     padding-top: 62px;
-    padding-bottom: 140px;
+    height: 100vh  ;
 }
 
 .headerFlexSection {
@@ -74,6 +75,7 @@
         margin-top: 3px;
         margin-bottom: 3px;
         text-transform: uppercase;
+
     }
 
     div {
@@ -99,7 +101,7 @@
 
     }
 
-    .disciplina h3{
+    .disciplina h3 {
         height: 70px;
     }
 }
@@ -107,6 +109,7 @@
 .notas {
     margin-left: 20px;
     margin-right: 20px;
+
     >div {
         display: flex;
         width: 100%;
@@ -117,10 +120,31 @@
     div:nth-child(1) {
         margin-right: 3px;
     }
+
+
 }
 
-.containerNotas{
+.containerNotas {
     display: flex;
-
 }
 
+.atividades {
+    li {
+        position: relative;
+        cursor: pointer;
+        &:after {
+            content: "+";
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: #015EE4;
+            top: 0px;
+            right: 0px;
+            color: #fff;
+
+            display: flex;
+            align-items: center;
+            justify-content:center;
+        }
+    }
+}

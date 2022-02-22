@@ -1,0 +1,54 @@
+.ativo {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    pointer-events: all;
+    opacity: 1;
+    transition: all 0.3;
+    cursor: default;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .containerPopup {
+        transition: .3s;
+        width: 757px;
+        height: 471px;
+        background: #F2F5FF;
+        border-radius: 10px;
+
+        animation: animationPopup .6s ease-in-out forwards;
+
+    }
+
+    @keyframes animationPopup {
+        0% {
+            width: 757px;
+            transform: scale(0.5)
+        }
+
+        70% {
+            transform: scale(1.2)
+        }
+
+        100% {
+            transform: scale(1)
+        }
+    }
+
+}
+
+.desativo {
+    pointer-events: none;
+    opacity: 0;
+    position: fixed;
+
+}

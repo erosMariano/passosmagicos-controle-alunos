@@ -1,27 +1,13 @@
 import React, { useState } from "react";
 import Header from "../../src/components/Header";
 import HeaderInSection from "../../src/components/HeaderInSection";
+import InformacoesBoletimAluno from "../../src/components/InformacoesBoletimAluno";
 import { useAuth } from "../../src/providers/auth";
 import styles from "./style.module.scss";
 
-type PropsBoletimAluno = {
-	disciplina: string;
-	notas: number[];
-	faltas: number;
-	situacacao: string;
-};
-const alunoNotas: PropsBoletimAluno[] = [
-	{
-		disciplina: "RESPONSIVE WEB DESIGN",
-		notas: [100, 95, 98],
-		faltas: 2,
-		situacacao: "Aprovado",
-	},
-];
 
 function Boletim() {
 	const { login } = useAuth();
-
 	return (
 		<>
 			{!login ? (
@@ -47,13 +33,7 @@ function Boletim() {
 									<h3>DISCIPLINA</h3>
 
 									<ul>
-										{alunoNotas.map((element) => {
-											return (
-												<li key={element.disciplina}>
-													{element.disciplina}
-												</li>
-											);
-										})}
+										<InformacoesBoletimAluno nameElement="disciplina" />
 									</ul>
 								</div>
 
@@ -61,17 +41,19 @@ function Boletim() {
 									<h3>NOTAS</h3>
 
 									<div>
-										<div>
+										<div className={styles.atividades}>
 											<h4>ATIVIDADES</h4>
 											<ul>
-												<li>98.63</li>
+												<InformacoesBoletimAluno
+													nameElement="notas"
+												/>
 											</ul>
 										</div>
 
 										<div>
 											<h4>FALTAS</h4>
 											<ul>
-												<li>0</li>
+												<InformacoesBoletimAluno nameElement="faltas" />
 											</ul>
 										</div>
 									</div>
@@ -82,7 +64,7 @@ function Boletim() {
 									<div>
 										<h4>SITUAÇÃO</h4>
 										<ul>
-											<li>Aprovado</li>
+											<InformacoesBoletimAluno nameElement="situacao" />
 										</ul>
 									</div>
 								</div>
