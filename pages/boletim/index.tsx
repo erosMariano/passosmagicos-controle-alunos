@@ -1,10 +1,10 @@
+import Head from "next/head";
 import React, { useState } from "react";
 import Header from "../../src/components/Header";
 import HeaderInSection from "../../src/components/HeaderInSection";
 import InformacoesBoletimAluno from "../../src/components/InformacoesBoletimAluno";
 import { useAuth } from "../../src/providers/auth";
 import styles from "./style.module.scss";
-
 
 function Boletim() {
 	const { login } = useAuth();
@@ -14,6 +14,9 @@ function Boletim() {
 				<></>
 			) : (
 				<>
+					<Head>
+						<title>Passos Mágicos | Boletim</title>
+					</Head>
 					<Header />
 
 					<main className={styles.main}>
@@ -44,9 +47,7 @@ function Boletim() {
 										<div className={styles.atividades}>
 											<h4>ATIVIDADES</h4>
 											<ul>
-												<InformacoesBoletimAluno
-													nameElement="notas"
-												/>
+												<InformacoesBoletimAluno nameElement="notas" />
 											</ul>
 										</div>
 
