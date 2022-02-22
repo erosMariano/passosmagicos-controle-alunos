@@ -17,6 +17,17 @@
     align-items: center;
     justify-content: center;
 
+    .closeIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
 
     .containerPopup {
         transition: .3s;
@@ -26,6 +37,7 @@
         border-radius: 10px;
 
         animation: animationPopup .6s ease-in-out forwards;
+        padding: 34px 46px;
 
     }
 
@@ -44,11 +56,142 @@
         }
     }
 
+    .popupDadosAluno {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .h2Popup {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 48px;
+
+        letter-spacing: 0.02em;
+
+        color: #277FFE;
+        text-align: left;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    .pAtividades {
+        text-align: left;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        /* identical to box height */
+
+        letter-spacing: 0.02em;
+
+        color: #5C5C5C;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+
+    }
+
+    .itemPopup {
+        background: #E9E9E9;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        /* identical to box height */
+
+        letter-spacing: 0.02em;
+
+        color: #808080;
+        margin: 3px 0;
+
+        height: 30px;
+    }
+
+    .titlePopupItens {
+        background: #277FFE;
+        border-radius: 4px 4px 0px 0px;
+        color: #fff;
+
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+
+        text-align: center;
+    }
+
+    .dataPopup {
+        width: 123px;
+
+        p {
+            width: 123px;
+            line-height: 31px;
+        }
+    }
+
+
+    .temaAtividade {
+        width: 251px;
+    }
+
 }
 
 .desativo {
     pointer-events: none;
     opacity: 0;
     position: fixed;
+}
 
+@media(max-width:838px) {
+    div.ativo {
+        width: 100% !important;
+
+        .containerPopup {
+            overflow-x: hidden;
+            margin-left: 20px;
+            margin-right: 20px !important;
+
+            padding-left: 10px;
+            padding-right: 10px;
+            height: auto;
+            padding-bottom: 70px;
+            padding-top: 40px;
+        }
+
+        .popupDadosAluno {
+            width: 700px;
+            overflow-x: scroll;
+        }
+
+        .temaAtividade {
+            width: 100%;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+
+        .h2Popup {
+
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.02em;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+
+        .pAtividades {
+
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 15px;
+            letter-spacing: 0.02em;
+            text-align: center;
+
+        }
+
+        .scrollMobile {
+            overflow-x: scroll;
+        }
+    }
 }

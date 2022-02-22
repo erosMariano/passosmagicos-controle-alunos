@@ -1,23 +1,50 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import styles from "./style.module.scss";
 
 type PropsBoletimAluno = {
 	disciplina: string;
-	notas: number[];
+	atividades: {
+		nome: string;
+		nota: number;
+		data: string;
+	}[];
 	faltas: number;
 	situacao: string;
 };
 const alunoNotas: PropsBoletimAluno[] = [
 	{
 		disciplina: "RESPONSIVE WEB DESIGN",
-		notas: [100, 30, 100],
+		atividades: [
+			{
+				nome: "ATIVIDADE 1 - BOOTSRAP",
+				nota: 100,
+				data: "10/03/2022",
+			},
+			{
+				nome: "ATIVIDADE 1 - BOOTSRAP",
+				nota: 95,
+				data: "10/03/2022",
+			},
+		],
 		faltas: 2,
 		situacao: "Aprovado",
 	},
 
 	{
 		disciplina: "Java",
-		notas: [60, 95, 98],
+		atividades: [
+			{
+				nome: "ATIVIDADE 1 - System Log",
+				nota: 67,
+				data: "11/02/2022",
+			},
+			{
+				nome: "ATIVIDADE 2",
+				nota: 95,
+				data: "10/03/2022",
+			},
+		],
 		faltas: 2,
 		situacao: "Aprovado",
 	},
@@ -54,8 +81,8 @@ function InformacoesBoletimAluno({
 				let acoulador = 0;
 				let contador = 0;
 
-				element.notas.forEach((nota) => {
-					acoulador += nota;
+				element.atividades.forEach((element) => {
+					acoulador += element.nota;
 					contador++;
 				});
 				const mediaPonderada = (acoulador / contador).toFixed(2);
@@ -73,25 +100,115 @@ function InformacoesBoletimAluno({
 							>
 								{mediaPonderada}
 							</li>
-							<div
-								className={styles[displayPopup]}
-								onClick={() => tirar()}
-							>
+							<div className={styles[displayPopup]}>
 								<div className={styles.containerPopup}>
-									{/* <h1>{elementosDisciplina?.disciplina}</h1>
-									<h1>{elementosDisciplina?.faltas}</h1>
-									<h1>
-										{elementosDisciplina?.notas.map(
-											(nota, index) => {
-												return (
-													<ul key={nota + index}>
-														<li>{nota}</li>
-													</ul>
-												);
-											}
-										)}
-									</h1>
-									<h1>{elementosDisciplina?.situacao}</h1> */}
+									<span
+										className={styles.closeIcon}
+										onClick={() => tirar()}
+									>
+										<Image
+											src="/images/icons/close.svg"
+											width="24"
+											height="24"
+											alt="Close icon"
+										/>
+									</span>
+									<h2 className={styles.h2Popup}>
+										{elementosDisciplina?.disciplina}
+									</h2>
+									<p className={styles.pAtividades}>
+										Atividades
+									</p>
+
+									<section className={styles.scrollMobile}>
+										<div className={styles.popupDadosAluno}>
+											<div className={styles.dataPopup}>
+												<div
+													className={
+														styles.titlePopupItens
+													}
+												>
+													Data
+												</div>
+
+												{elementosDisciplina?.atividades.map(
+													(atividade, index) => {
+														return (
+															<p
+																className={
+																	styles.itemPopup
+																}
+																key={
+																	atividade.nome +
+																	index
+																}
+															>
+																{atividade.data}
+															</p>
+														);
+													}
+												)}
+											</div>
+
+											<div
+												className={styles.temaAtividade}
+											>
+												<div
+													className={
+														styles.titlePopupItens
+													}
+												>
+													TEMA
+												</div>
+
+												{elementosDisciplina?.atividades.map(
+													(atividade, index) => {
+														return (
+															<p
+																className={`${styles.itemPopup}`}
+																key={
+																	atividade.nome +
+																	index
+																}
+															>
+																{atividade.nome}
+															</p>
+														);
+													}
+												)}
+											</div>
+
+											<div
+												className={styles.temaAtividade}
+											>
+												<div
+													className={
+														styles.titlePopupItens
+													}
+												>
+													Nota
+												</div>
+
+												{elementosDisciplina?.atividades.map(
+													(atividade, index) => {
+														return (
+															<p
+																className={
+																	styles.itemPopup
+																}
+																key={
+																	atividade.nome +
+																	index
+																}
+															>
+																{atividade.nota}
+															</p>
+														);
+													}
+												)}
+											</div>
+										</div>
+									</section>
 								</div>
 							</div>
 						</React.Fragment>
