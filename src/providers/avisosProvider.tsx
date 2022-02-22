@@ -59,10 +59,6 @@ export const AvisosProvider: FC = ({ children }) => {
 		});
 	}, [avisos]);
 
-	useEffect(() => {
-		avisoLido();
-	}, [avisoLido]);
-
 	return (
 		<AvisosContext.Provider value={{ avisos, avisoLido }}>
 			{children}

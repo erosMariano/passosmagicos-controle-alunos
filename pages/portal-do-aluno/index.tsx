@@ -26,9 +26,9 @@ function HomeAluno() {
 				setLido(contador);
 			}
 		});
-
 	});
 
+	console.log(avisos);
 	return (
 		<>
 			{!login ? (
