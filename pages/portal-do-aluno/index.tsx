@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineSchedule, AiOutlineWarning } from "react-icons/ai";
 import { BiBookBookmark } from "react-icons/bi";
 import { BsClipboardData } from "react-icons/bs";
@@ -8,11 +8,23 @@ import { useAuth } from "../../src/providers/auth";
 import styles from "./style.module.scss";
 import Header from "../../src/components/Header";
 import Link from "next/link";
-import { informacoes } from "../../src/datas/aviso";
+import { useAvisos } from "../../src/providers/avisosProvider";
 
 function HomeAluno() {
 	const { login } = useAuth();
+	const { avisos } = useAvisos();
 
+	const [lido, setLido] = useState(false);
+
+
+	//Verifica se email ja foi lido ou não 
+	useEffect(() => {
+		avisos.map((element) => {
+			if (element.lido === true) {
+				setLido(true);
+			}
+		});
+	});
 	return (
 		<>
 			{!login ? (
@@ -55,7 +67,7 @@ function HomeAluno() {
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										{informacoes.length >= 1 ? (
+										{!lido ? (
 											<Link href="/avisos">
 												<a
 													className={`${styles.cardInfos} ${styles.avisoCard}`}
@@ -63,9 +75,7 @@ function HomeAluno() {
 													<AiOutlineWarning />
 													<p>Avisos</p>
 
-													<span>
-														{informacoes.length}
-													</span>
+													<span>{avisos.length}</span>
 												</a>
 											</Link>
 										) : (
@@ -83,7 +93,7 @@ function HomeAluno() {
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										<Link href="/info1">
+										<Link href="/atividades">
 											<a className={styles.cardInfos}>
 												<BiBookBookmark />
 												<p>Atividades</p>

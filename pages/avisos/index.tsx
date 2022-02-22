@@ -1,16 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import ButtonLocation from "../../src/components/ButtonLocation";
 import Header from "../../src/components/Header";
-import HeaderInSection from "../../src/components/HeaderInSection";
 import TitleSectionAluno from "../../src/components/TitleSectionAluno";
-import { informacoes } from "../../src/datas/aviso";
 import { useAuth } from "../../src/providers/auth";
+import { useAvisos } from "../../src/providers/avisosProvider";
+
 import styles from "./style.module.scss";
 
 function Avisos() {
 	const { login } = useAuth();
+	const { avisos } = useAvisos();
+
+	console.log(avisos);
+
+	
 	return (
 		<>
 			{!login ? (
@@ -31,15 +36,14 @@ function Avisos() {
 									altImagem="Warning image"
 									titulo="AVISOS"
 								/>
-							
 
-								{informacoes.length >= 1 ? (
+								{avisos.length >= 1 ? (
 									<div className={styles.containerMessage}>
-										{informacoes.map((message) => {
+										{avisos.map((message, index) => {
 											return (
 												<div
 													className={styles.message}
-													key={message.title}
+													key={message.title + index}
 												>
 													<h2>{message.title}</h2>
 													<p>{message.message}</p>
