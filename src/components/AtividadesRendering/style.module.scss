@@ -1,0 +1,144 @@
+.buttonEntregar {
+    background: #015EE4;
+    border-radius: 5px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    width: 174px;
+    height: 29px;
+
+    text-align: center;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.buttonEntrege {
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: #86B7FF;
+}
+
+.popupEntregar {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    width: 757px;
+    height: 394px;
+    background: #F2F5FF;
+    border-radius: 10px;
+    padding: 36px 40px;
+
+    position: relative;
+
+    
+
+    h3 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 48px;
+        letter-spacing: 0.02em;
+
+        color: #277FFE;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    h4 {
+        background: #277FFE;
+        border-radius: 4px 4px 0px 0px;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    h4+p {
+        font-size: 16px;
+        line-height: 30px;
+        /* identical to box height */
+
+        letter-spacing: 0.02em;
+
+        color: #808080;
+        background: #E9E9E9;
+        text-align: center;
+        margin-top: 3px;
+        font-weight: 300;
+
+        height: 30px;
+        text-transform: uppercase;
+        padding-left: 10px;
+        padding-right: 10px
+
+    }
+
+    h4+input {
+        width: 100%;
+        background: #E9E9E9;
+        border: 1px solid #ADADAD;
+        text-align: center;
+        margin-top: 3px;
+
+        height: 30px;
+        text-transform: uppercase;
+
+    }
+}
+
+.subtitleAtividade {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    letter-spacing: 0.02em;
+
+    color: #5C5C5C;
+    margin-bottom: 15px;
+}
+
+.containerButtonForm {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.containerElementos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemClose{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.popupInativo {
+    display: none;
+}
+
+.popupAtivo{
+    display: flex;
+}

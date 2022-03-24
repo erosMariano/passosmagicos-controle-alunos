@@ -60,7 +60,7 @@ function HomeAluno() {
 									<div
 										className={styles.informacoesParaAluno}
 									>
-										<Link href="/info1">
+										<Link href="/relatorio">
 											<a className={styles.cardInfos}>
 												<BsClipboardData />
 												<p>Relatório</p>
